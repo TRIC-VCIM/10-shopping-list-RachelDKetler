@@ -12,7 +12,6 @@ function addItem(e) {
 alert ('Please add an item.');
 return;
     }
-
  const li = document.createElement('li');
  li.appendChild(document.createTextNode(newItem));
  const button = createButton('remove-item btn-link text-red');
@@ -42,7 +41,10 @@ function createIcon(classes){
 
 function removeItem(e) {
     if (e.target.parentElement.classList.contains('remove-item')) {
+       if(confirm('Are you sure you want to remove this item?')) {
         e.target.parentElement.parentElement.remove();
+        checkUI();
+       } 
     }
 }
 
@@ -50,6 +52,7 @@ function removeItem(e) {
         while (itemList.firstChild) {
             itemList.removeChild(itemList.firstChild);
         }
+        checkUI();
     }
 
     function checkUI() {
