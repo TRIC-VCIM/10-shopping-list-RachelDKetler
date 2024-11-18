@@ -24,21 +24,7 @@ addItemToStorage(newItem);
  itemInput.value = '';
 }
 
-// This isn't working because the HTML calling isn't working properly
-if(isEditMode) {
-    const itemToEdit = itemList.querySelector('edit-mode');
-    removeItemFromStorage(itemToEdit.textContent);
-    itemToEdit.classList.remove('edit-mode');
-    itemToEdit.remove();
-    isEditMode = false;
-}
-else {
-    if (checkIfItemExists(newItem))
-    {
-        alert('That item is already in the list!');
-        return;
-    }
-}
+
 
 
 function addItemToDOM(item) {
